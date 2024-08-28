@@ -27,14 +27,17 @@
       </ul>
 
       <h2>Select a date to timestamp:</h2>
-      <form method="get" action="TODO/placeholder">
-        <input type="date" name="date" />
+      <form method="get" onsubmit="this.action='/api/' + this.dateInput.value">
+        <input type="date" id="dateInput" name="dateInput" />
         <input type="submit" />
       </form>
 
       <h2>Alternatively, enter a Unix time to get the corresponding date:</h2>
-      <form method="get" action="TODO/placeholder">
-        <input type="text" name="unixTime" maxlength="15" />
+      <form
+        method="get"
+        onsubmit="this.action='/api/' + encodeURIComponent(this.timeInput.value)"
+      >
+        <input type="text" id="timeInput" name="timeInput" maxlength="15" />
         <input type="submit" />
       </form>
 

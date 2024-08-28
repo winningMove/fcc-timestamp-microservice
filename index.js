@@ -23,6 +23,11 @@ app.get("/api/hello", function (_, res) {
   res.json({ greeting: "hello API" });
 });
 
+app.get("/api/:date?", function (req, res) {
+  const dateComponent = req.params.date;
+  res.json({ date: dateComponent });
+});
+
 // Listen on port set in environment variable or default to 3000
 var listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Your app is listening on port " + listener.address().port);
