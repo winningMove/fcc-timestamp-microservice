@@ -33,10 +33,7 @@
       </form>
 
       <h2>Alternatively, enter a Unix time to get the corresponding date:</h2>
-      <form
-        method="get"
-        onsubmit="this.action='/api/' + encodeURIComponent(this.timeInput.value)"
-      >
+      <form method="get" onsubmit="this.action='/api/' + this.timeInput.value">
         <input type="text" id="timeInput" name="timeInput" maxlength="15" />
         <input type="submit" />
       </form>
