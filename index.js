@@ -30,12 +30,13 @@ app.get("/api/:date?", function (req, res) {
   if (!dateComponent) {
     date = new Date();
   } else if (!isNaN(dateComponent)) {
-    date = new Date(parseInt(dateComponent));
+    date = new Date(+dateComponent);
   } else {
     date = new Date(dateComponent);
   }
 
-  if (isNaN(date.getTime())) return res.json({ error: "Invalid Date" });
+  if (isNaN(date.getTime()))
+    return res.status(400).json({ error: "Invalid Date" });
 
   res.json({
     unix: date.getTime(),
